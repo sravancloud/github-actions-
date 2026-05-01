@@ -7,5 +7,5 @@ jobs:
   say-hello:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello Worlds
+      - name: Print Hello World add
         run: echo "Hello, World!"
