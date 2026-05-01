@@ -4,7 +4,7 @@ on: [push]
 
 concurrency:
   group: ${{ github.repository }}-${{ github.ref }}
-  cancel-in-progress: true
+  cancel-in-progress: true # it will cancel the running one, pickup new one
 
 jobs:
   test-timeout:
