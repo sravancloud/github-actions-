@@ -1,11 +1,12 @@
-name: Hello World
+name: actions
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+
 jobs:
-  say-hello:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello World add
-        run: echo "Hello, World!"
+      - uses: actions/checkout@v4
+      - name: Hello
+        run: echo "Workflow is running"
