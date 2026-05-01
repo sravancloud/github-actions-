@@ -2,8 +2,8 @@ name: Timeout Example
 
 on: [Push]
 concurrency:
-group: ${{ github.repository }}-${{ github.ref }}
-cancel-in-progress: true
+   group: ${{ github.repository }}-${{ github.ref }}
+   cancel-in-progress: true
 
 jobs:
   test-timeout:
