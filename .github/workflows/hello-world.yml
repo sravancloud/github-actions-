@@ -1,7 +1,6 @@
 name: actions
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - master
@@ -10,5 +9,5 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: echo "Workflow is running"
+      name: Print Hello
+        run: echo "Hello, World!"
