@@ -1,0 +1,40 @@
+name: Print Default Variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  debug-vars:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Core GitHub Variables
+        run: |
+          echo "GITHUB_WORKFLOW: $GITHUB_WORKFLOW"
+          echo "GITHUB_RUN_ID: $GITHUB_RUN_ID"
+          echo "GITHUB_RUN_NUMBER: $GITHUB_RUN_NUMBER"
+          echo "GITHUB_JOB: $GITHUB_JOB"
+          echo "GITHUB_SHA: $GITHUB_SHA"
+          echo "GITHUB_REF: $GITHUB_REF"
+          echo "GITHUB_REPOSITORY: $GITHUB_REPOSITORY"
+          echo "GITHUB_ACTOR: $GITHUB_ACTOR"
+          echo "GITHUB_EVENT_NAME: $GITHUB_EVENT_NAME"
+          echo "GITHUB_WORKSPACE: $GITHUB_WORKSPACE"
+
+      - name: Print GitHub Context (Expression Style)
+        run: |
+          echo "Actor (context): ${{ github.actor }}"
+          echo "Repo (context): ${{ github.repository }}"
+          echo "Branch (context): ${{ github.ref }}"
+          echo "Commit (context): ${{ github.sha }}"
+
+      - name: Print Runner Info
+        run: |
+          echo "Runner OS: ${{ runner.os }}"
+          echo "Runner Name: ${{ runner.name }}"
+          echo "Runner Temp: ${{ runner.temp }}"
+
+      - name: Extract Useful Values
+        run: |
+          echo "Branch Name: ${GITHUB_REF#refs/heads/}"
+          echo "Short SHA: ${GITHUB_SHA:0:7}"
