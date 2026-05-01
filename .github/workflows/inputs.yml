@@ -1,32 +1,36 @@
 name: Inputs
+
 on:
   workflow_dispatch:
     inputs:
       name:
-         description: "Enter your name"
-         required: true
-         default: "DevOps Engineer"
-      env:
-        description: 'Enter environment (dev/test/prod)'
+        description: "Enter your name"
         required: true
-        type: Environment
-    run_tests:
-        description: 'Run test cases?'
+        default: "DevOps Engineer"
+
+      env:
+        description: "Enter environment (dev/test/prod)"
+        required: true
+        type: environment
+
+      run_tests:
+        description: "Run test cases?"
         required: true
         type: boolean
         default: true
 
       build_type:
-        description: 'Select build type'
+        description: "Select build type"
         required: true
         type: choice
         options:
           - debug
           - release
+
       version:
-        description: 'Enter version'
+        description: "Enter version"
         required: true
-        default: '1.0.0'
+        default: "1.0.0"
 
 jobs:
   testing:
@@ -35,5 +39,8 @@ jobs:
     steps:
       - name: Print User Inputs
         run: |
+          echo "Name: ${{ github.event.inputs.name }}"
           echo "Environment: ${{ github.event.inputs.env }}"
+          echo "Run Tests: ${{ github.event.inputs.run_tests }}"
+          echo "Build Type: ${{ github.event.inputs.build_type }}"
           echo "Version: ${{ github.event.inputs.version }}"
