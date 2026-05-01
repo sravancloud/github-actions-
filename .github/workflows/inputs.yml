@@ -11,8 +11,7 @@ on:
         description: 'Enter environment (dev/test/prod)'
         required: true
         type: Environment
-
-         run_tests:
+    run_tests:
         description: 'Run test cases?'
         required: true
         type: boolean
