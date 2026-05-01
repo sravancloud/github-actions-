@@ -3,7 +3,7 @@ name: Timeout Example
 on: [Push]
 concurrency:
 group: ${{ github.repository }}-${{ github.ref }}
-cancel-in-progress: ture
+cancel-in-progress: true
 
 jobs:
   test-timeout:
