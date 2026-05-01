@@ -3,10 +3,28 @@ name: Testing Input Workflow
 on:
   workflow_dispatch:
     inputs:
+      name:
+         description: "Enter your name"
+         required: true
+         default: "DevOps Engineer"
       env:
         description: 'Enter environment (dev/test/prod)'
         required: true
-        default: 'test'
+        type: Environment
+
+         run_tests:
+        description: 'Run test cases?'
+        required: true
+        type: boolean
+        default: true
+
+      build_type:
+        description: 'Select build type'
+        required: true
+        type: choice
+        options:
+          - debug
+          - release
       version:
         description: 'Enter version'
         required: true
